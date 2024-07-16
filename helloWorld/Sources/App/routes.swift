@@ -2,9 +2,18 @@ import Vapor
 import Leaf
 
 func routes(_ app: Application) throws {
-    let journalController = JournalController() 
+    // 데이터 삽입
+//    let journalController = JournalController()
+//    app.post("entries", use: journalController.create)
     
-    app.post("entries", use: journalController.create)
+    let sessionMiddleware = app.sessions.middleware
+        let authSessionMiddleware = Admin.sessionAuthenticator()
+        let guardMiddleware = Admin.redirectMiddleware(path: "/login")
+
+        let protected = app.grouped(sessionMiddleware, authSessionMiddleware, guardMiddleware)
+
+        try app.register(collection: PublicRoutes())
+        try protected.register(collection: ProtectedRoutes())
     
     app.get { req async in
         "It works!"
