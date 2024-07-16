@@ -7,6 +7,7 @@
 
 import Vapor
 
+
 struct Entry: Content {
     var id: UUID?
     var title: String
