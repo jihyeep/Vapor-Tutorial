@@ -6,11 +6,20 @@
 //
 
 import Vapor
+import Fluent
 
-
-struct Entry: Content {
+final class Entry: Model, Content {
+    static let schema: String = "entries"
+    
+    init() {}
+    
+    @ID(key: .id)
     var id: UUID?
+    
+    @Field(key: "title")
     var title: String
+    
+    @Field(key: "content")
     var content: String
     
     init(id: UUID? = nil, title: String, content: String) {
@@ -19,3 +28,6 @@ struct Entry: Content {
         self.content = content
     }
 }
+
+// Vapor가 Swift6에 대응하지 못하는 것 같음 - Warning 지우기
+extension Entry: @unchecked Sendable {}
