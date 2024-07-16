@@ -14,7 +14,9 @@ let package = Package(
         // 데이터베이스 모델 사용을 위한 라이브러리 추가
         .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0"),
         // 파일 데이터베이스(SQLite) 모듈 라이브러리 추가
-        .package(url: "https://github.com/vapor/fluent-sqlite-driver.git", from: "4.0.0")
+        .package(url: "https://github.com/vapor/fluent-sqlite-driver.git", from: "4.0.0"),
+        // 템플릿 엔진 Leaf 의존성 추가
+        .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0"),
     ],
     targets: [
         .executableTarget(
@@ -23,6 +25,7 @@ let package = Package(
                 // 라이브러리 임포트 설정
                 .product(name: "Fluent", package: "fluent"),
                 .product(name: "FluentSQLiteDriver", package: "fluent-sqlite-driver"),
+                .product(name: "Leaf", package: "leaf"),
                 
                 .product(name: "Vapor", package: "vapor"),
                 .product(name: "NIOCore", package: "swift-nio"),
