@@ -19,12 +19,12 @@ public func configure(_ app: Application) async throws {
     
     // uncomment to serve files from /Public folder
     app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
-    
-    // Journal Controller 라우터 등록
-     try app.register(collection: JournalController())
 
-     // register routes
-     try routes(app)
+    // Journal Controller 라우터 등록
+    try app.register(collection: JournalController())
+
+    // register routes
+    try routes(app)
     
     // 마이그레이션 코드 실행 (개발 모드에서만 실행)
     try await app.autoMigrate().get()

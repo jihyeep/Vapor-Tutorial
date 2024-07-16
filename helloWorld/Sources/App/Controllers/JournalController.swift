@@ -8,6 +8,7 @@
 import Vapor
 import Leaf
 
+// JSON 데이터 decoding
 struct CreateEntryData: Content {
     let title: String
     let content: String

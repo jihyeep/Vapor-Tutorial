@@ -2,6 +2,9 @@ import Vapor
 import Leaf
 
 func routes(_ app: Application) throws {
+    let journalController = JournalController() 
+    
+    app.post("entries", use: journalController.create)
     
     app.get { req async in
         "It works!"
