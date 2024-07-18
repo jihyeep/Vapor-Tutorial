@@ -8,13 +8,41 @@
 import SwiftUI
 
 struct EntryDetailView: View {
+    @Environment(\.dismiss) var dismiss
     var entry: Entry
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            // MARK: - 배경색
+            Color(hex: "#121A21")
+                .ignoresSafeArea(.all)
+        }
+        // MARK: - Navigation title/backButton
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("New entry")
+                    .foregroundStyle(Color(hex: "#FFFFFF"))
+                    .font(.system(size: 18, weight: .bold))
+            }
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+                    Image(systemName: "xmark")
+                        .resizable()
+                        .frame(width: 15, height: 15)
+                        .foregroundStyle(Color(hex: "#FFFFFF"))
+                }
+            }
+            
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    EntryDetailView(entry: SampleData.entries[0])
+    NavigationStack {
+        EntryDetailView(entry: SampleData.entries[0])
+    }
 }
