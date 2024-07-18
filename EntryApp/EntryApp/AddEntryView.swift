@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct EntryDetailView: View {
+struct AddEntryView: View {
     @Environment(\.dismiss) var dismiss
     var entry: Entry
     
@@ -16,6 +16,10 @@ struct EntryDetailView: View {
             // MARK: - 배경색
             Color(hex: "#121A21")
                 .ignoresSafeArea(.all)
+            
+            VStack {
+                
+            }
         }
         // MARK: - Navigation title/backButton
         .navigationBarTitleDisplayMode(.inline)
@@ -43,6 +47,6 @@ struct EntryDetailView: View {
 
 #Preview {
     NavigationStack {
-        EntryDetailView(entry: SampleData.entries[0])
+        AddEntryView(entry: SampleData.entries[0])
     }
 }

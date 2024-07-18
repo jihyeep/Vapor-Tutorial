@@ -25,7 +25,7 @@ struct EntryListView: View {
                 .ignoresSafeArea(.all)
             
             List(SampleData.entries, id: \.id) { entry in
-                NavigationLink(destination: EntryDetailView(entry: entry)) {
+                NavigationLink(destination: AddEntryView(entry: entry)) {
                     VStack(alignment: .leading) {
                         Text(entry.date)
                             .font(.system(size: 16))
