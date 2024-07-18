@@ -106,5 +106,7 @@ struct LoginDetailView: View {
 }
 
 #Preview {
-    LoginDetailView()
+    NavigationStack {
+        LoginDetailView()
+    }
 }

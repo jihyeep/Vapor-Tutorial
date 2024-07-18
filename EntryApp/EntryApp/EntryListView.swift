@@ -9,10 +9,30 @@ import SwiftUI
 
 struct EntryListView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            // MARK: - 배경색
+            Color(hex: "#121A21")
+                .ignoresSafeArea(.all)
+            
+            VStack {
+                
+            }
+        }
+        // MARK: - Navigation title
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                Text("Entries")
+                    .foregroundStyle(Color(hex: "#FFFFFF"))
+                    .font(.system(size: 18, weight: .bold))
+            }
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    EntryListView()
+    NavigationStack {
+        EntryListView()
+    }
 }
