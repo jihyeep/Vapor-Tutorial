@@ -1,4 +1,4 @@
-Vapor를 사용한 Server-Side 
+Vapor를 사용한 Server-Side 프로젝트
 ==========
 > SwiftUI
 
