@@ -18,6 +18,8 @@ struct SampleData {
 }
 
 struct EntryListView: View {
+    @State private var showingAddEntryView: Bool = false
+    
     var body: some View {
         ZStack {
             // MARK: - 배경색
@@ -25,17 +27,16 @@ struct EntryListView: View {
                 .ignoresSafeArea(.all)
             
             List(SampleData.entries, id: \.id) { entry in
-                NavigationLink(destination: AddEntryView(entry: entry)) {
-                    VStack(alignment: .leading) {
-                        Text(entry.date)
-                            .font(.system(size: 16))
-                            .foregroundStyle(Color(hex: "#FFFFFF"))
-                        Text(entry.content)
-                            .font(.system(size: 14))
-                            .foregroundStyle(Color(hex: "#94ADC7"))
-                    }
-                    .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 16))
+                
+                VStack(alignment: .leading) {
+                    Text(entry.date)
+                        .font(.system(size: 16))
+                        .foregroundStyle(Color(hex: "#FFFFFF"))
+                    Text(entry.content)
+                        .font(.system(size: 14))
+                        .foregroundStyle(Color(hex: "#94ADC7"))
                 }
+                .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 16))
                 // 리스트 배경색 제거
                 .listRowBackground(Color.clear)
             }
@@ -49,8 +50,20 @@ struct EntryListView: View {
                     .foregroundStyle(Color(hex: "#FFFFFF"))
                     .font(.system(size: 18, weight: .bold))
             }
+            // MARK: - Entry 추가 버튼
+            ToolbarItem(placement: .topBarTrailing) {
+                Button() {
+                    showingAddEntryView.toggle()
+                } label: {
+                    Image(systemName: "plus")
+                        .foregroundStyle(Color(hex: "#FFFFFF"))
+                }
+            }
         }
         .navigationBarBackButtonHidden(true)
+        .fullScreenCover(isPresented: $showingAddEntryView) {
+            AddEntryView()
+        }
     }
 }
 

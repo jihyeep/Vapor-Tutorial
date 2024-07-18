@@ -9,44 +9,43 @@ import SwiftUI
 
 struct AddEntryView: View {
     @Environment(\.dismiss) var dismiss
-    var entry: Entry
     
     var body: some View {
-        ZStack {
-            // MARK: - 배경색
-            Color(hex: "#121A21")
-                .ignoresSafeArea(.all)
-            
-            VStack {
+        NavigationStack {
+            ZStack {
+                // MARK: - 배경색
+                Color(hex: "#121A21")
+                    .ignoresSafeArea(.all)
                 
-            }
-        }
-        // MARK: - Navigation title/backButton
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            ToolbarItem(placement: .principal) {
-                Text("New entry")
-                    .foregroundStyle(Color(hex: "#FFFFFF"))
-                    .font(.system(size: 18, weight: .bold))
-            }
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "xmark")
-                        .resizable()
-                        .frame(width: 15, height: 15)
-                        .foregroundStyle(Color(hex: "#FFFFFF"))
+                VStack {
+                    
                 }
             }
-            
+            // MARK: - Navigation title/backButton
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Text("New entry")
+                        .foregroundStyle(Color(hex: "#FFFFFF"))
+                        .font(.system(size: 18, weight: .bold))
+                }
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .resizable()
+                            .frame(width: 15, height: 15)
+                            .foregroundStyle(Color(hex: "#FFFFFF"))
+                    }
+                }
+                
+            }
+            .navigationBarBackButtonHidden(true)
         }
-        .navigationBarBackButtonHidden(true)
     }
 }
 
 #Preview {
-    NavigationStack {
-        AddEntryView(entry: SampleData.entries[0])
-    }
+        AddEntryView()
 }
