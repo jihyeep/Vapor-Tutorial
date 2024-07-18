@@ -40,7 +40,7 @@ struct LoginView: View {
                             .foregroundStyle(Color(hex: "#FFFFFF"))
                             .frame(width: 328, height: 40)
                             .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                            .background(RoundedRectangle(cornerRadius: 5)
+                            .background(RoundedRectangle(cornerRadius: 8)
                                 .fill(Color(hex: "#243647")))
                         
                     }
@@ -52,7 +52,7 @@ struct LoginView: View {
                             .foregroundStyle(Color(hex: "#FFFFFF"))
                             .frame(width: 328, height: 40)
                             .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                            .background(RoundedRectangle(cornerRadius: 5)
+                            .background(RoundedRectangle(cornerRadius: 8)
                                 .fill(Color(hex: "#243647")))
                     }
                     Button {
@@ -63,7 +63,7 @@ struct LoginView: View {
                             .foregroundStyle(Color(hex: "#FFFFFF"))
                             .frame(width: 328, height: 40)
                             .padding(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                            .background(RoundedRectangle(cornerRadius: 5)
+                            .background(RoundedRectangle(cornerRadius: 8)
                                 .fill(Color(hex: "#243647")))
                     }
                     // MARK: - 회원가입
